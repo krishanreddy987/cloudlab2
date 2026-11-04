@@ -4,37 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Flask Website</title>
+
+    <title>My Flask Application</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
-    <header>
-        <h1>My Flask Website</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-        </nav>
-    </header>
+    <div class="container">
 
-    <main class="container">
-        <h2>Welcome to My Website!</h2>
+        <h1>Welcome to My Flask Application</h1>
 
-        <p>
-            This website is developed using Python Flask,
-            HTML and CSS.
-        </p>
+        <p>A simple Python Flask web application.</p>
 
-        <button onclick="alert('Welcome to Flask!')">
-            Get Started
-        </button>
-    </main>
+        <form method="POST" action="/">
+            <label for="username">Enter Your Name:</label>
 
-    <footer>
-        <p>&copy; 2026 My Flask Website. All rights reserved.</p>
-    </footer>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your name"
+                required
+            >
+
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if username %}
+            <div class="result">
+                <h2>Hello, {{ username }}!</h2>
+                <p>Welcome to my Flask application.</p>
+            </div>
+        {% endif %}
+
+        <footer>
+            <p>Powered by Python Flask</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
